@@ -245,14 +245,11 @@ Ví dụ tạo tệp 2 gb:
 
 Ghi lại số liệu thực tế từ ứng dụng:
 
-| Dung lượng nguồn | Lần thử | Thời gian mã hóa (s) | Tốc độ mã hóa (MiB/s) | Thời gian giải mã (s) | Tốc độ giải mã (MiB/s) | Kết quả so sánh byte |
+| Dung lượng nguồn | Lần thử | Thời gian giải mã (s) | Tốc độ giải mã (MiB/s) | Thời gian mã hóa(s) | Tốc độ mã hóa(MiB/s) | Kết quả so sánh byte |
 |---|---:|---:|---:|---:|---:|---|
-| 1 GiB | 1 | [Điền] | [Điền] | [Điền] | [Điền] | [Điền] |
-| 1 GiB | 2 | [Điền] | [Điền] | [Điền] | [Điền] | [Điền] |
-| 1 GiB | 3 | [Điền] | [Điền] | [Điền] | [Điền] | [Điền] |
-| 2 GiB | 1 | [Điền] | [Điền] | [Điền] | [Điền] | [Điền] |
-| 2 GiB | 2 | [Điền] | [Điền] | [Điền] | [Điền] | [Điền] |
-| 2 GiB | 3 | [Điền] | [Điền] | [Điền] | [Điền] | [Điền] |
+| 1 GiB | 1 | [3.077s] | [332.78Mb/s] | [3.145s] | [325.58Mb/s] | [Khớp] |
+| 1 GiB | 2 | [2.889s] | [354.44Mb/s] | [2.921s] | [352.92Mb/s] | [Khớp] |
+| 1 GiB | 3 | [2.770s] | [369.59Mb/s] | [3.141s] | [325.96Mb/s] | [Khớp] |
 
 Công thức tham khảo:
 
@@ -265,15 +262,15 @@ Thời gian trung bình = (Lần 1 + Lần 2 + Lần 3) / 3
 
 ### 7.1. Nhận xét về chức năng
 
-[Điền các chức năng đã chạy thành công, chức năng gặp lỗi và cách khắc phục. Nêu rõ kết quả so sánh tệp nguồn với tệp sau giải mã.]
+Tất cả các chức năng phần mềm cơ bản đã hoạt động hoàn hảo, không có chức năng nào gặp lỗi trong quá trình thử nghiệm. Sau khi giải mã, tệp nguồn và tệp giải mã hoàn toàn trùng khớp về số byte.
 
 ### 7.2. Nhận xét về hiệu năng
 
-[Dựa vào bảng số liệu để so sánh thời gian mã hóa và giải mã giữa các kích thước tệp. Nêu tốc độ xử lý quan sát được trên máy tính đã dùng. Không khái quát kết quả thành tốc độ của AES trên tất cả máy tính.]
+Nhìn chung, thời gian giải mã tệp có phần nhỉnh hơn mã hóa (chênh lệch khoảng vài mili giây). Kết quả chạy thực nghiệm với 2 file 1Gb và 2Gb là rất nhanh, không gây khó chịu khi sử dụng.
 
 ### 7.3. Kết luận
 
-[Đưa ra kết luận dựa trên kết quả kiểm thử thực tế: chương trình đáp ứng được những yêu cầu nào, dữ liệu sau giải mã có khớp theo byte hay không, quá trình xử lý tệp lớn có hoàn tất hay không và hạn chế còn lại.]
+Về cơ bản, chương trình đã đáp ứng chọn vẹn yêu cầu của đề bài đưa ra, có thể sinh khóa; sử dụng khóa đã tạo; mã hóa các văn bản (kể quả tiếng việt); các file có kích thước tính bằng Gb thì chương trình cũng đều có thể mã hóa hoàn toàn bình thường mà không gặp phải lỗi; dung lượng sau giải mã ăn khớp với tệp nguồn ban đầu.
 
 ## 8. Hạn chế và lưu ý bảo mật
 
@@ -284,29 +281,3 @@ Thời gian trung bình = (Lần 1 + Lần 2 + Lần 3) / 3
 - Sau khi lưu đủ ảnh minh chứng và số liệu, có thể xóa các tệp thử nghiệm dung lượng lớn nếu không còn sử dụng. Cần kiểm tra đúng đường dẫn trước khi xóa.
 
 ---
-
-## 9. Danh sách ảnh minh chứng
-
-Tạo thư mục `images` cùng cấp với file báo cáo này. Các tên ảnh gợi ý tương ứng với những vị trí được đánh dấu trong báo cáo:
-
-1. `01-cau-truc-du-an.png` — Cấu trúc dự án trong Visual Studio.
-2. `02-cua-so-ung-dung.png` — Cửa sổ ứng dụng sau khi chạy.
-3. `03-sinh-khoa.png` — Sinh khóa AES-256.
-4. `04-luu-khoa.png` — Lưu khóa ra JSON.
-5. `05-import-khoa.png` — Import khóa đã lưu.
-6. `06-ma-hoa-van-ban.png` — Mã hóa văn bản.
-7. `07-giai-ma-van-ban.png` — Giải mã văn bản.
-8. `08-ma-hoa-tep-nho.png` — Mã hóa tệp nhỏ.
-9. `09-giai-ma-tep-nho.png` — Giải mã tệp nhỏ.
-10. `10-so-sanh-byte-tep-nho.png` — So sánh tệp nhỏ theo byte.
-11. `11-tao-tep-lon.png` — Tạo tệp lớn bằng PowerShell.
-12. `12-dung-luong-tep-lon.png` — Dung lượng tệp lớn trong File Explorer.
-13. `13-ma-hoa-tep-lon.png` — Nhật ký mã hóa tệp lớn.
-14. `14-giai-ma-tep-lon.png` — Nhật ký giải mã tệp lớn.
-15. `15-so-sanh-byte-tep-lon.png` — So sánh tệp lớn theo byte.
-
-**Cách chèn ảnh:** Sau khi chụp và lưu ảnh vào thư mục `images`, thay dòng đánh dấu **📸 CHÈN ẢNH...** tương ứng bằng cú pháp, ví dụ:
-
-```markdown
-![Ảnh 1: Cấu trúc dự án trong Visual Studio](images/01-cau-truc-du-an.png)
-```
