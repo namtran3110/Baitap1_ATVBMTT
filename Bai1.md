@@ -138,7 +138,7 @@ Y — Import khóa đã lưu thành công**
 
 --> Tệp `.aesgcm` là định dạng do ứng dụng này quy định để lưu phần thông tin cần thiết cho việc giải mã và xác thực. Đây không phải định dạng chung có thể giải mã bằng các phần mềm AES khác.
 
-**Kết quả thực tế:** Tệp nguồn: `tes_aes.txt`; tệp mã hóa: tes_aes.txt.aesgcm; tệp giải mã: tes_aes.txt.decrypted
+**Kết quả thực tế:** Tệp nguồn: `tes_aes.txt`; tệp mã hóa: tes_aes.txt.aesgcm; tệp giải mã: tes_aes.txt.decrypted. Các thao tác chạy hoàn toàn bình thường.
 
 > **<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e344b634-fa3c-426b-a5df-80d4857dbbff" />
  — Mã hóa tệp nhỏ thành công**  
@@ -168,14 +168,14 @@ Y — Import khóa đã lưu thành công**
 
 Trong thư mục dự án có tệp `TaoFileTest.ps1`. Script này tạo dữ liệu ngẫu nhiên và ghi ra tệp theo từng khối, không nạp toàn bộ tệp vào RAM. Tệp được tạo tại đường dẫn truyền vào tham số `-OutputPath`.
 
-Ví dụ tạo tệp 1 GiB:
+Mã nguồn ví dụ tạo tệp 1 gb:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass -Force
 .\TaoFileTest.ps1 -OutputPath "C:\Temp\test-1GiB.bin" -SizeGiB 1
 ```
 
-Ví dụ tạo tệp 2 GiB:
+Ví dụ tạo tệp 2 gb:
 
 ```powershell
 .\TaoFileTest.ps1 -OutputPath "C:\Temp\test-2GiB.bin" -SizeGiB 2
@@ -185,15 +185,11 @@ Ví dụ tạo tệp 2 GiB:
 - Tệp thử nghiệm 2 GiB sẽ nằm tại `C:\Temp\test-2GiB.bin` nếu chạy đúng lệnh thứ hai.
 - Nếu thay đổi `-OutputPath`, tệp sẽ được tạo tại vị trí đã chỉ định.
 - `1 GiB = 1.073.741.824 byte`; `2 GiB = 2.147.483.648 byte`.
-- Cần kiểm tra ổ đĩa còn đủ chỗ cho tệp gốc, tệp mã hóa và tệp khôi phục.
 
-**Kết quả thực tế:** [Ghi đường dẫn đã dùng, dung lượng tệp và trạng thái chạy script.]
-
-> **📸 CHÈN ẢNH 11 TẠI ĐÂY — Tạo tệp lớn bằng PowerShell**  
-> Gợi ý tên ảnh: `images/11-tao-tep-lon.png`. Chụp lệnh đã chạy và thông báo hoàn tất.
->
-> **📸 CHÈN ẢNH 12 TẠI ĐÂY — Tệp lớn trong File Explorer**  
-> Gợi ý tên ảnh: `images/12-dung-luong-tep-lon.png`. Chụp tên tệp, đường dẫn và dung lượng.
+> **<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/e53771b6-a480-401b-9ebb-8bf220d4da4a" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f55fcebb-bad5-48d1-a846-66433392c077" />
+— Tạo tệp lớn bằng PowerShell**  
+`images/11-tao-tep-lon.png`
 
 ### 4.8. Mã hóa, giải mã và đo hiệu năng tệp lớn
 
@@ -207,23 +203,25 @@ Ví dụ tạo tệp 2 GiB:
 
 **Điều kiện thử nghiệm:**
 
-- CPU: [Điền thông tin nếu biết].
-- RAM: [Điền dung lượng].
-- Ổ đĩa chứa tệp: [SSD/HDD và thông tin nếu biết].
-- Hệ điều hành: [Điền phiên bản Windows].
-- Tệp thử nghiệm: [Tên và dung lượng thực tế].
-- Số lần chạy: [Điền số lần].
+- RAM: 16GB
+- Ổ đĩa chứa tệp: SSD
+- Hệ điều hành: Window 10 Pro
+- Tệp thử nghiệm: Tệp test-1GiB.bin, dung lượng 1Gb
+- Số lần chạy: 3
 
 **Kết quả thực tế:** [Điền thời gian và tốc độ lấy từ nhật ký ứng dụng. Không tự điền số liệu khi chưa chạy thử.]
 
-> **📸 CHÈN ẢNH 13 TẠI ĐÂY — Nhật ký mã hóa tệp lớn**  
-> Gợi ý tên ảnh: `images/13-ma-hoa-tep-lon.png`. Đảm bảo ảnh thấy được dung lượng, thời gian và tốc độ.
->
-> **📸 CHÈN ẢNH 14 TẠI ĐÂY — Nhật ký giải mã tệp lớn**  
-> Gợi ý tên ảnh: `images/14-giai-ma-tep-lon.png`.
->
-> **📸 CHÈN ẢNH 15 TẠI ĐÂY — So sánh byte của tệp lớn**  
-> Gợi ý tên ảnh: `images/15-so-sanh-byte-tep-lon.png`.
+> **<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/8443e676-fd37-442a-a036-6ec94aeaf171" />
+ — Nhật ký mã hóa tệp lớn**  
+`images/13-ma-hoa-tep-lon.png`
+
+> **<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/16a5e3a6-cf71-4711-a7c8-4491e551d902" />
+ — Nhật ký giải mã tệp lớn**  
+`images/14-giai-ma-tep-lon.png`
+
+> **<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3cbfd558-dbe8-4056-ad63-0bfa0cb337fb" />
+ — So sánh byte của tệp lớn**  
+`images/15-so-sanh-byte-tep-lon.png`
 
 ---
 
@@ -233,19 +231,19 @@ Ví dụ tạo tệp 2 GiB:
 
 | STT | Nội dung kiểm thử | Kết quả mong đợi | Kết quả thực tế | Đánh giá |
 |---:|---|---|---|---|
-| 1 | Sinh khóa AES-256 | Sinh được khóa 32 byte | [Điền] | [Đạt/Không đạt/Chưa thử] |
-| 2 | Lưu khóa và import lại | Nạp được khóa đã lưu | [Điền] | [Điền] |
-| 3 | Mã hóa/giải mã văn bản tiếng Việt | Văn bản khôi phục giống nguồn | [Điền] | [Điền] |
-| 4 | Mã hóa/giải mã chuỗi rỗng | Khôi phục đúng chuỗi rỗng | [Điền] | [Điền] |
-| 5 | Sửa bản mã hoặc dùng sai khóa | Xác thực thất bại hoặc báo lỗi phù hợp | [Điền] | [Điền] |
-| 6 | Mã hóa/giải mã tệp nhỏ | Tệp khôi phục giống nguồn theo byte | [Điền] | [Điền] |
-| 7 | Mã hóa/giải mã tệp 1 GiB | Hoàn tất nếu đủ tài nguyên máy | [Điền] | [Điền] |
-| 8 | Mã hóa/giải mã tệp 2 GiB | Hoàn tất nếu đủ tài nguyên máy | [Điền] | [Điền] |
-| 9 | So sánh tệp sau giải mã | Hai tệp giống hệt theo byte | [Điền] | [Điền] |
+| 1 | Sinh khóa AES-256 | Sinh được khóa 32 byte | [Đạt] | [Đạt] |
+| 2 | Lưu khóa và import lại | Nạp được khóa đã lưu | [Đạt] | [Đạt] |
+| 3 | Mã hóa/giải mã văn bản tiếng Việt | Văn bản khôi phục giống nguồn | [Đạt] | [Đạt] |
+| 4 | Mã hóa/giải mã chuỗi rỗng | Khôi phục đúng chuỗi rỗng | [Đạt] | [Đạt] |
+| 5 | Sửa bản mã hoặc dùng sai khóa | Xác thực thất bại hoặc báo lỗi phù hợp | [Đạt] | [Đạt] |
+| 6 | Mã hóa/giải mã tệp nhỏ | Tệp khôi phục giống nguồn theo byte | [Đạt] | [Đạt] |
+| 7 | Mã hóa/giải mã tệp 1 GiB | Hoàn tất nếu đủ tài nguyên máy | [Đạt] | [Đạt] |
+| 8 | Mã hóa/giải mã tệp 2 GiB | Hoàn tất nếu đủ tài nguyên máy | [Chưa thử] | [Chưa thử] |
+| 9 | So sánh tệp sau giải mã | Hai tệp giống hệt theo byte | [Đạt] | [Đạt] |
 
 ## 6. Bảng số liệu thực nghiệm
 
-Ghi lại số liệu thực tế từ ứng dụng. Nếu có thể, thực hiện 3 lần với mỗi kích thước tệp và giữ điều kiện thử nghiệm tương tự nhau.
+Ghi lại số liệu thực tế từ ứng dụng:
 
 | Dung lượng nguồn | Lần thử | Thời gian mã hóa (s) | Tốc độ mã hóa (MiB/s) | Thời gian giải mã (s) | Tốc độ giải mã (MiB/s) | Kết quả so sánh byte |
 |---|---:|---:|---:|---:|---:|---|
